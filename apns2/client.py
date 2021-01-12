@@ -263,3 +263,6 @@ class APNsClient(object):
                 logger.exception('Failed connecting to APNs (attempt %s of %s)', retries, MAX_CONNECTION_RETRIES)
 
         raise ConnectionFailed()
+
+    def close(self) -> None:
+        self._connection.close()
